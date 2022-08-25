@@ -26,11 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-      - name: Instrumentation Tests
-        run: bash ./gradlew connectedAndroidTest
-         
+        uses: reactivecircus/android-emulator-runner@v2
+          with:
+             api-level: 23
+            target: default
+            arch: x86
+            profile: Nexus 6
+            script: ./gradlew connectedCheck
   
   
