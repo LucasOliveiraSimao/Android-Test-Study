@@ -18,20 +18,3 @@ jobs:
           java-version: '11'
       - name: Unit tests
         run: bash ./gradlew test
-        
-  instrumentation-test:
-    name: Run Instrumentation Tests
-    runs-on: windows-latest
-    
-    steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK 11
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-           api-level: 23
-           target: default
-           arch: x86
-           profile: Nexus 6
-           script: ./gradlew connectedCheck
-  
-  
