@@ -1,11 +1,9 @@
-package com.lucassimao.androidteststudy.data
+package com.lucassimao.androidteststudy.data.api
 
+import com.lucassimao.androidteststudy.utils.BaseMockServerTest
 import kotlinx.coroutines.runBlocking
-import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okio.IOException
-import okio.buffer
-import okio.source
 import org.junit.After
 import org.junit.Test
 
@@ -14,7 +12,7 @@ import org.junit.Before
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PlaylistAPITest {
+class PlaylistAPITest : BaseMockServerTest() {
 
     private lateinit var api: PlaylistAPI
     private lateinit var server: MockWebServer
@@ -36,7 +34,7 @@ class PlaylistAPITest {
 
     @Test
     fun shouldReceivedPlaylist_whenSendRequestFetchPlaylist() = runBlocking {
-        enqueueMockResponse("playlists.json")
+        enqueueMockResponse(server, "playlist.json")
         val response = api.fetchPlaylist().body()?.size
         val expected = 0
 
@@ -45,33 +43,51 @@ class PlaylistAPITest {
 
     @Test
     fun shouldReceivedPath_whenSendRequestFetchPlaylist() = runBlocking {
-        enqueueMockResponse("playlists.json")
-        fetchPlaylist()
+        enqueueMockResponse(server, "playlist.json")
+        fetchPlaylist(api)
         val response = server.takeRequest().path
-        val expected = "/playlists.json"
+        val expected = "/playlist.json"
 
         assertEquals(expected, response)
     }
 
     @Test
     fun shouldReceivedError_whenSendRequestFetchPlaylist() = runBlocking {
-        enqueueMockResponse("playlists.json")
-        fetchPlaylist()
+        enqueueMockResponse(server, "playlist.json")
+        fetchPlaylist(api)
         val response = server.takeRequest().failure
         val expected = IOException().message
 
         assertEquals(expected, response)
     }
 
-    private suspend fun fetchPlaylist() {
-        api.fetchPlaylist()
+    @Test
+    fun shouldReceivedPlaylistDetails_whenSendRequestGetPlaylistDetail() = runBlocking {
+        enqueueMockResponse(server, "playlist_detail.json")
+        val response = api.getPlaylistDetail().body()
+        val expected = null
+
+        assertNotEquals(expected, response)
     }
 
-    private fun enqueueMockResponse(fileName: String) {
-        val inputStream = javaClass.classLoader!!.getResourceAsStream(fileName)
-        val source = inputStream.source().buffer()
-        val mockResponse = MockResponse()
-        mockResponse.setBody(source.readString(Charsets.UTF_8))
-        server.enqueue(mockResponse)
+    @Test
+    fun shouldReceivedPath_whenSendRequestGetPlaylistDetail() = runBlocking {
+        enqueueMockResponse(server, "playlist_detail.json")
+        getPlaylistDetails(api)
+        val response = server.takeRequest().path
+        val expected = "/playlist_detail.json"
+
+        assertEquals(expected, response)
     }
+
+    @Test
+    fun shouldReceivedError_whenSendRequestGetPlaylistDetail() = runBlocking {
+        enqueueMockResponse(server, "playlist_detail.json")
+        getPlaylistDetails(api)
+        val response = server.takeRequest().failure
+        val expected = IOException().message
+
+        assertEquals(expected, response)
+    }
+
 }
