@@ -50,4 +50,9 @@ dependencies {
 
     implementation Deps.mock_web_server
 
+    testImplementation Deps.core_testing
+
+    testImplementation Deps.mockito_inline
+    testImplementation Deps.mockito_kotlin
+
 }

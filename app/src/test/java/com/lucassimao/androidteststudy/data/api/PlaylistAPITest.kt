@@ -35,7 +35,7 @@ class PlaylistAPITest : BaseMockServerTest() {
     @Test
     fun shouldReceivedPlaylist_whenSendRequestFetchPlaylist() = runBlocking {
         enqueueMockResponse(server, "playlist.json")
-        val response = api.fetchPlaylist().body()?.size
+        val response = api.fetchPlaylist().size
         val expected = 0
 
         assertNotEquals(expected, response)
@@ -64,7 +64,7 @@ class PlaylistAPITest : BaseMockServerTest() {
     @Test
     fun shouldReceivedPlaylistDetails_whenSendRequestGetPlaylistDetail() = runBlocking {
         enqueueMockResponse(server, "playlist_detail.json")
-        val response = api.getPlaylistDetail().body()
+        val response = api.getPlaylistDetail()
         val expected = null
 
         assertNotEquals(expected, response)
