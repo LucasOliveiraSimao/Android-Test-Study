@@ -9,10 +9,12 @@ class PlaylistMapper @Inject constructor() : Function1<List<PlaylistRaw>, List<P
 
     override fun invoke(playlistRaw: List<PlaylistRaw>): List<PlaylistModel> {
         return playlistRaw.map {
+
             val image = when (it.category) {
                 "rock" -> R.mipmap.rock
                 else -> R.mipmap.playlist
             }
+
             PlaylistModel(it.id, it.name, it.category, image)
         }
     }
