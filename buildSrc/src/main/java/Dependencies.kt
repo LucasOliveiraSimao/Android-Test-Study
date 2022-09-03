@@ -7,6 +7,7 @@ object Version {
     const val core_testing = "2.1.0"
     const val mockito_inline = "4.6.0"
     const val mockito_kotlin = "2.2.0"
+    const val hilt = "2.43.2"
 
 }
 
@@ -20,4 +21,6 @@ object Deps {
     const val core_testing = "androidx.arch.core:core-testing:${Version.core_testing}"
     const val mockito_inline = "org.mockito:mockito-inline:${Version.mockito_inline}"
     const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.mockito_kotlin}"
+    const val hilt_android = "com.google.dagger:hilt-android:${Version.hilt}"
+    const val hilt_compile = "com.google.dagger:hilt-compiler:${Version.hilt}"
 }

@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -47,6 +49,9 @@ dependencies {
 
     implementation Deps.coroutines_core
     implementation Deps.coroutines_android
+
+    implementation Deps.hilt_android
+    kapt Deps.hilt_compile
 
     implementation Deps.mock_web_server
 
