@@ -8,7 +8,14 @@ object Version {
     const val mockito_inline = "4.6.0"
     const val mockito_kotlin = "2.2.0"
     const val hilt = "2.43.2"
-
+    const val core_ktx = "1.7.0"
+    const val appcompat = "1.5.0"
+    const val material = "1.6.1"
+    const val constraint_layout = "2.1.4"
+    const val junit = "4.13.2"
+    const val test_ext = "1.1.3"
+    const val espresso_core = "3.4.0"
+    const val lifecycle = "2.5.1"
 }
 
 object Deps {
@@ -23,4 +30,14 @@ object Deps {
     const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.mockito_kotlin}"
     const val hilt_android = "com.google.dagger:hilt-android:${Version.hilt}"
     const val hilt_compile = "com.google.dagger:hilt-compiler:${Version.hilt}"
+    const val core_ktx = "androidx.core:core-ktx:${Version.core_ktx}"
+    const val appcompat = "androidx.appcompat:appcompat:${Version.appcompat}"
+    const val material = "com.google.android.material:material:${Version.material}"
+    const val constraint_layout = "androidx.constraintlayout:constraintlayout:${Version.constraint_layout}"
+    const val junit = "junit:junit:${Version.junit}"
+    const val test_ext = "androidx.test.ext:junit:${Version.test_ext}"
+    const val espresso_core = "androidx.test.espresso:espresso-core:${Version.espresso_core}"
+    const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.lifecycle}"
+    const val view_model = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
+    const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
 }
