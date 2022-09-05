@@ -22,6 +22,7 @@ object Version {
     const val runner = "1.4.0"
     const val hamcrest = "2.2"
     const val test_rules = "1.4.0"
+    const val idling_resource = "1.0.0"
 }
 
 object Deps {
@@ -53,4 +54,5 @@ object Deps {
     const val runner = "androidx.test:runner:${Version.runner}"
     const val hamcrest = "org.hamcrest:hamcrest:${Version.hamcrest}"
     const val test_rules = "androidx.test:rules:${Version.test_rules}"
+    const val idling_resource = "com.jakewharton.espresso:okhttp3-idling-resource:${Version.idling_resource}"
 }
