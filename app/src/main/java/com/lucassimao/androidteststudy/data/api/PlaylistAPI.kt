@@ -6,7 +6,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface PlaylistAPI {
-    @GET("playlist.json")
+    @GET("playlists.json")
     suspend fun fetchPlaylist(): List<PlaylistRaw>
 
     @GET("playlist_detail.json")
