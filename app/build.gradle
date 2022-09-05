@@ -77,4 +77,6 @@ dependencies {
         exclude group: "org.jetbrains.kotlin"
     }
 
+    implementation Deps.idling_resource
+
 }
