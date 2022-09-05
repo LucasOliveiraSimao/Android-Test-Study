@@ -1,5 +1,6 @@
 package com.lucassimao.androidteststudy.presentation.di
 
+import com.jakewharton.espresso.OkHttp3IdlingResource
 import com.lucassimao.androidteststudy.data.PlaylistRepositoryImpl
 import com.lucassimao.androidteststudy.data.api.PlaylistAPI
 import com.lucassimao.androidteststudy.data.api.PlaylistService
@@ -14,6 +15,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+val client = OkHttpClient()
+val idlingResource = OkHttp3IdlingResource.create("okttp", client)
+
 @Module
 @InstallIn(SingletonComponent::class)
 class PlaylistModule {
@@ -25,7 +29,7 @@ class PlaylistModule {
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://lucasoliveirasimao.github.io/apiTest/")
-        .client(OkHttpClient())
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

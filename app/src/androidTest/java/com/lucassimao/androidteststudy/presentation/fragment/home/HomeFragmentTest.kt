@@ -1,24 +1,20 @@
 package com.lucassimao.androidteststudy.presentation.fragment.home
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertDisplayed
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertNotDisplayed
 import com.adevinta.android.barista.internal.matcher.DrawableMatcher.Companion.withDrawable
 import com.lucassimao.androidteststudy.R
 import com.lucassimao.androidteststudy.baseUITest.BaseUITest
-import com.lucassimao.androidteststudy.presentation.MainActivity
+import com.lucassimao.androidteststudy.presentation.di.idlingResource
 import org.hamcrest.CoreMatchers.allOf
-import org.junit.Rule
 import org.junit.Test
 
 class HomeFragmentTest : BaseUITest() {
-
-    @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun shouldDisplayScreenTitle() {
@@ -27,8 +23,6 @@ class HomeFragmentTest : BaseUITest() {
 
     @Test
     fun shouldDisplayListOfPlaylist() {
-        Thread.sleep(6000)
-
         onView(
             allOf(
                 withId(R.id.playlist_name),
@@ -60,19 +54,17 @@ class HomeFragmentTest : BaseUITest() {
 
     @Test
     fun shouldDisplayLoader_whileFetchingPlaylist() {
+        IdlingRegistry.getInstance().unregister(idlingResource)
         assertDisplayed(R.id.pb_loader)
     }
 
     @Test
     fun hiderLoader() {
-        Thread.sleep(4000)
         assertNotDisplayed(R.id.pb_loader)
     }
 
     @Test
     fun navigateToDetailScreen() {
-        Thread.sleep(6000)
-
         onView(
             allOf(
                 withId(R.id.playlist_name),

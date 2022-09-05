@@ -9,6 +9,6 @@ interface PlaylistAPI {
     @GET("playlists.json")
     suspend fun fetchPlaylist(): List<PlaylistRaw>
 
-    @GET("playlist_detail.json")
+    @GET("playlist_details.json")
     suspend fun getPlaylistDetail(): PlaylistDetail
 }
