@@ -24,7 +24,7 @@ class PlaylistModule {
 
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
-        .baseUrl("")
+        .baseUrl("https://lucasoliveirasimao.github.io/apiTest/")
         .client(OkHttpClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()

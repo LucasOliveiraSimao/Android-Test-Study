@@ -5,10 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.lucassimao.androidteststudy.domain.repository.PlaylistRepository
-import kotlinx.coroutines.flow.catch
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@HiltViewModel
 class PlaylistViewModel @Inject constructor(
     private val repository: PlaylistRepository
 ) : ViewModel() {
