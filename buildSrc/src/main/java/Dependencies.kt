@@ -14,8 +14,14 @@ object Version {
     const val constraint_layout = "2.1.4"
     const val junit = "4.13.2"
     const val test_ext = "1.1.3"
-    const val espresso_core = "3.4.0"
+    const val espresso_core = "3.3.0"
     const val lifecycle = "2.5.1"
+    const val activity_ktx = "1.5.1"
+    const val navigation = "2.5.1"
+    const val barista = "4.2.0"
+    const val runner = "1.4.0"
+    const val hamcrest = "2.2"
+    const val test_rules = "1.4.0"
 }
 
 object Deps {
@@ -40,4 +46,11 @@ object Deps {
     const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.lifecycle}"
     const val view_model = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
     const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
+    const val activity_ktx = "androidx.activity:activity-ktx:${Version.activity_ktx}"
+    const val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
+    const val navigation_ui = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
+    const val barista = "com.adevinta.android:barista:${Version.barista}"
+    const val runner = "androidx.test:runner:${Version.runner}"
+    const val hamcrest = "org.hamcrest:hamcrest:${Version.hamcrest}"
+    const val test_rules = "androidx.test:rules:${Version.test_rules}"
 }
