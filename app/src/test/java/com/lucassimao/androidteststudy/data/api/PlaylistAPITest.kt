@@ -46,7 +46,7 @@ class PlaylistAPITest : BaseMockServerTest() {
         enqueueMockResponse(server, "playlist.json")
         fetchPlaylist(api)
         val response = server.takeRequest().path
-        val expected = "/playlist.json"
+        val expected = "/playlists.json"
 
         assertEquals(expected, response)
     }
