@@ -31,12 +31,12 @@ jobs:
     needs: [ unit-test ]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Run Intrumentation test
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
+          api-level: 29
           script: ./gradlew connectedAndroidTest
 
       - name: Upload instrumentation test report
