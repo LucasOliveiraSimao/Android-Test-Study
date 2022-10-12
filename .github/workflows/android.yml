@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  test:
+  unit-test:
     name: Run Unit Tests
     runs-on: windows-latest
     
@@ -26,3 +26,24 @@ jobs:
         with:
           name: unit_test_report
           path: app/build/reports/test/testDebugUnitTest/
+
+  instrumentation-test:
+    needs: [ unit-test ]
+    runs-on: macos-lastest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Intrumentation test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: run ./gradlew connectedCheck
+
+      - name: Upload instrumentation test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: instrumentation_test_report
+          path: app/build/reports/androidTests/connected/
+
+
+
