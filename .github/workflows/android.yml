@@ -20,4 +20,4 @@ jobs:
           java-version: '11'
 
       - name: Run unit test
-        run: ./gradlew test
+        run: bash ./gradlew test
