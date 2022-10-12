@@ -33,7 +33,7 @@ jobs:
     needs: [ unit-test ]
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Run Intrumentation test
         uses: reactivecircus/android-emulator-runner@v2
@@ -42,7 +42,7 @@ jobs:
           target: default
           arch: x86
           profile: Nexus 6
-          script: ./gradlew connectedAndroidTest
+          script: ./gradlew connectedCheck
 
       - name: Upload instrumentation test report
         uses: actions/upload-artifact@v2
