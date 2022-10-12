@@ -31,6 +31,7 @@ jobs:
 
   instrumentation-test:
     needs: [ unit-test ]
+    name: Run Instrumentation Tests
     runs-on: macos-latest
 
     steps:
