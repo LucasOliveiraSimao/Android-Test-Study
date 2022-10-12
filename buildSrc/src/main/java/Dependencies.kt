@@ -36,7 +36,7 @@ object Deps {
     const val mockito_inline = "org.mockito:mockito-inline:${Version.mockito_inline}"
     const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.mockito_kotlin}"
     const val hilt_android = "com.google.dagger:hilt-android:${Version.hilt}"
-    const val hilt_compile = "com.google.dagger:hilt-compiler:${Version.hilt}"
+    const val hilt_compile = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
     const val core_ktx = "androidx.core:core-ktx:${Version.core_ktx}"
     const val appcompat = "androidx.appcompat:appcompat:${Version.appcompat}"
     const val material = "com.google.android.material:material:${Version.material}"

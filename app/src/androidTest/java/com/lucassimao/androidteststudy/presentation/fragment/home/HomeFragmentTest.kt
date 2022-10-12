@@ -52,11 +52,11 @@ class HomeFragmentTest : BaseUITest() {
 
     }
 
-    @Test
-    fun shouldDisplayLoader_whileFetchingPlaylist() {
-        IdlingRegistry.getInstance().unregister(idlingResource)
-        assertDisplayed(R.id.pb_loader)
-    }
+//    @Test
+//    fun shouldDisplayLoader_whileFetchingPlaylist() {
+//        IdlingRegistry.getInstance().unregister(idlingResource)
+//        assertDisplayed(R.id.pb_loader)
+//    }
 
     @Test
     fun hiderLoader() {

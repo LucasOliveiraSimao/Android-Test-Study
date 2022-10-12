@@ -4,6 +4,8 @@ on:
   push:
     branches: [ "develop" ]
 
+  workflow_dispatch:
+
 jobs:
 
   unit-test:
@@ -37,7 +39,10 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedAndroidTest
+          target: default
+          arch: x86
+          profile: Nexus 6
+          script: ./gradlew connectedCheck
 
       - name: Upload instrumentation test report
         uses: actions/upload-artifact@v2
