@@ -19,4 +19,10 @@ jobs:
           java-version: '11'
 
       - name: Run unit test
-        run: bash ./gradlew test
+        run: bash ./gradlew test --stacktrace
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit_test_report
+          path: app/build/reports/test/testDebugUnitTest/
